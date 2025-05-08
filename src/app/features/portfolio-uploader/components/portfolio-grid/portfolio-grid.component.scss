@@ -1,0 +1,14 @@
+.grid-container {
+    padding: 16px;
+    &.dark-mode {
+      .ag-theme-alpine {
+        // @include ag-theme-alpine-dark();
+      }
+    }
+  }
+  
+  .grid-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+  }

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+    <span>Customer Portfolio Uploader</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="toggleDarkMode()">
+      <mat-icon>{{ (isDarkMode$ | async) ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="container">
+    <div class="upload-section">
+      <input type="file" accept=".xlsx" (change)="onFileSelected($event)" />
+      <div class="stats">
+        <span>Total Records: {{ totalRecords$ | async }}</span>
+        <span>Unsaved Changes: {{ modifiedCount$ | async }}</span>
+      </div>
+      <button mat-raised-button color="primary" (click)="submitChanges()" [disabled]="(modifiedCount$ | async) === 0">
+        Submit Changes
+      </button>
+    </div>
+  
+    <app-portfolio-grid></app-portfolio-grid>
+    <app-audit-panel></app-audit-panel>
+  </div>

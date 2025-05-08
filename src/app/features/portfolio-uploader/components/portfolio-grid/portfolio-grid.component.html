@@ -1,0 +1,12 @@
+<div class="grid-container" [ngClass]="{'dark-mode': (isDarkMode$ | async)}">
+    <ag-grid-angular
+      style="width: 100%; height: 800px;"
+      class="ag-theme-alpine"
+      [gridOptions]=gridOptions
+      [rowData]="portfolios$ | async"
+      (cellValueChanged)="onCellValueChanged($event.data)">
+    </ag-grid-angular>
+    <div class="grid-actions">
+      <button mat-raised-button color="primary" (click)="exportToExcel()">Export to Excel</button>
+    </div>
+  </div>

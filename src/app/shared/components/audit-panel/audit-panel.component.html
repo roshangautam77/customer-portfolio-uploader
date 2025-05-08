@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Audit Logs</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table>
+        <thead>
+          <tr>
+            <th>Upload Time</th>
+            <th>Parse Time (ms)</th>
+            <th>Submission Time (ms)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of auditLogs$ | async">
+            <td>{{ log.uploadTime | dateFormat }}</td>
+            <td>{{ log.parseTime | number:'1.2-2' }}</td>
+            <td>{{ log.submissionTime || '-' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  
